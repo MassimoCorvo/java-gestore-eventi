@@ -70,4 +70,8 @@ public class Evento {
     public String toString() {
         return this.data + " - " + this.titolo;
     }
+
+    public int calcoloPostiDisponibili(){
+        return this.numeroPosti - this.numeroPostiPrenotati;
+    }
 }
