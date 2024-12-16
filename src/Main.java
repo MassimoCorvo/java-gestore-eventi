@@ -44,11 +44,17 @@ public class Main {
         // controlli
         System.out.println("Inserisci il numero di prenotazioni da effettuare");
         int prenotazioniDaEffettuare = in.nextInt();
-        if(prenotazioniDaEffettuare <= evento.calcoloPostiDisponibili() && prenotazioniDaEffettuare >= 0){
-            for(int i=0; i < prenotazioniDaEffettuare; i++){
-                evento.prenota();
+        if(data.isAfter(evento.getLocalDate()))
+            System.out.println("L'evento già passato");  //Per come è strutturato il programma non si verificherà mai con lo scanner
+        else if(prenotazioniDaEffettuare > evento.calcoloPostiDisponibili())
+            System.out.println("Non sono disponibili abbastanza posti");
+        else if(prenotazioniDaEffettuare < 0)
+            System.out.println("Il numero di prenotazioni deve essere positivo");
+        else{
+                for(int i=0; i < prenotazioniDaEffettuare; i++){
+                    evento.prenota();
+                }
             }
-        }
 
         System.out.println("Posti prenotati: " + evento.getNumeroPostiPrenotati());
         System.out.println("Posti disponibili: " + evento.calcoloPostiDisponibili());

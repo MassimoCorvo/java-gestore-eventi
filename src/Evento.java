@@ -30,6 +30,10 @@ public class Evento {
         return this.data.toString();
     }
 
+    public LocalDate getLocalDate() {
+        return this.data;
+    }
+
     public void setData(LocalDate data) {
         this.data = data;
     }
@@ -42,17 +46,8 @@ public class Evento {
         return this.numeroPostiPrenotati;
     }
 
-    public String prenota() {
-        ////Se l’evento è già passato o non ha posti disponibili deve restituire un messaggio di avviso
-
-        if (this.numeroPostiPrenotati == this.numeroPosti || this.data.isBefore(LocalDate.now()))
-            return "Prenotazione non disponibile.";
-        else if (this.numeroPostiPrenotati < this.numeroPosti) {
-            this.numeroPostiPrenotati++;
-        }
-
-        return "Prenotazione effettuata.";
-
+    public void prenota() {
+        this.numeroPostiPrenotati++;
     }
 
     // riduce di uno i posti prenotati. Se l’evento è già passato o non ci sono
@@ -71,7 +66,7 @@ public class Evento {
         return this.data + " - " + this.titolo;
     }
 
-    public int calcoloPostiDisponibili(){
+    public int calcoloPostiDisponibili() {
         return this.numeroPosti - this.numeroPostiPrenotati;
     }
 }
