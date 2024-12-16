@@ -1,11 +1,10 @@
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // LocalDate data = LocalDate.of(2026, 10, 22);
-        // Evento evento = new Evento("Concerto", data, 200);
-
+       
         Scanner in = new Scanner(System.in);
         System.out.println("Inserisci titolo evento");
         String titolo = in.nextLine();
@@ -65,7 +64,13 @@ public class Main {
 
         System.out.println("Posti prenotati: " + evento.getNumeroPostiPrenotati());
         System.out.println("Posti disponibili: " + evento.calcoloPostiDisponibili());        
+        System.out.println(evento);
 
+        //Parte 3
+        LocalDate dataProva = LocalDate.of(2026, 10, 22);
+        LocalTime oraProva = LocalTime.of(21, 00);
+        Concerto concerto = new Concerto("Concerto", dataProva, 10, oraProva, 22.3323456f);
+        System.out.println(concerto);
     }
 
 }
