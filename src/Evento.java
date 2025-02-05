@@ -2,14 +2,12 @@ import java.time.LocalDate;
 
 public class Evento {
     private String titolo;
-    private LocalDate data = null;
+    private LocalDate data;
     private final int numeroPosti;
     private int numeroPostiPrenotati = 0;
 
     public Evento(String titolo, LocalDate data, int numeroPosti) {
-        // Inserire il controllo che la data non sia già passata e che il numero di
-        // posti totali sia positivo. In caso contrario mostrare i dovuti avvisi
-        // all’utente
+        
         if(data.isBefore(LocalDate.now())){
             throw new IllegalArgumentException("La data non deve essere già passata.");
         }
@@ -33,10 +31,6 @@ public class Evento {
 
     public String getData() {
         return this.data.toString();
-    }
-
-    public LocalDate getLocalDate() {
-        return this.data;
     }
 
     public void setData(LocalDate data) {
