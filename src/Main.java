@@ -22,9 +22,6 @@ public class Main {
 
         Evento evento = new Evento(titolo, data, numeroPosti);
 
-        // Dopo che l’evento è stato istanziato, chiedere all’utente se e quante
-        // prenotazioni vuole fare e provare ad effettuarle, implementando opportuni
-        // controlli
         System.out.println("Inserisci il numero di prenotazioni da effettuare");
         int prenotazioniDaEffettuare = in.nextInt();
         evento.prenota(prenotazioniDaEffettuare);
@@ -35,6 +32,8 @@ public class Main {
         System.out.println("Inserisci il numero di disdette da effettuare");
         int disdetteDaEffettuare = in.nextInt();
         evento.disdici(disdetteDaEffettuare);
+
+        in.close();
 
         System.out.println("Posti prenotati: " + evento.getNumeroPostiPrenotati());
         System.out.println("Posti disponibili: " + evento.calcoloPostiDisponibili());        
